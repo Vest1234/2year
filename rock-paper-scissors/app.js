@@ -1,28 +1,41 @@
-const rock = document.getElementById("rock")
-const paper = document.getElementById("paper")
-const scissors = document.getElementById("scissors")
+const rockElement = document.getElementById("rock")
+const paperElement = document.getElementById("paper")
+const scissorsElement = document.getElementById("scissors")
+const rock = "rock"
+const paper = "paper"
+const scissors = "scissors"
 const table = document.querySelector('.score')
 const gameElements = ["rock", "paper", "scissors"]
+let player = "player"
 
-rock.addEventListener
 
-rock.addEventListener("click", 
+rockElement.addEventListener("click", 
     function(){
         console.log("Player: rock")
-        console.log("computer:", gameElements[getRandomInt(3)] )
+        player = "rock"
+        computer = gameElements[getRandomInt(3)]
+        console.log("computer:", computer )
+        playRound(player, computer)
+
     }
 )
-paper.addEventListener("click",
+paperElement.addEventListener("click",
     function () {
         console.log("Player: paper")
-        console.log("computer:", gameElements[getRandomInt(3)] )
+        player = "paper"
+        computer = gameElements[getRandomInt(3)]
+        console.log("computer:", computer )
+        playRound(player, computer)
     }
   )
 
-scissors.addEventListener("click",
+scissorsElement.addEventListener("click",
     function () {
         console.log("Player: scissors")
-        console.log("computer:", gameElements[getRandomInt(3)] )
+        player = "scissors"
+        computer = gameElements[getRandomInt(3)]
+        console.log("computer:", computer )
+        playRound(player, computer)
     }
 )
 
@@ -34,9 +47,11 @@ function getRandomInt(max) {
 
 
 function playRound(player, computer) {
-    if(player === rock && computer === scissors) {
+    if       (player === rock && computer === scissors) {
         console.log("player: won")
     }else if (player === scissors && computer === paper) {
+        console.log("player: won")
+    }else if (player === paper && computer === rock) {
         console.log("player: won")
     }else if (player === rock && computer === rock){
         console.log("Tie")
@@ -49,4 +64,7 @@ function playRound(player, computer) {
     }
 
 }
-playRound()
+
+
+
+
