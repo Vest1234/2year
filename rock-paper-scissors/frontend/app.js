@@ -7,6 +7,13 @@ const scissors = "scissors"
 const table = document.querySelector('.score')
 const btnRestart = document.querySelector('.btnRestart')
 const gameElements = ["rock", "paper", "scissors"]
+const btnNomber = document.getElementById("buttonNomber")
+const nomber1 = document.getElementById('nomber1')
+const btnNickname = document.getElementById('buttonNickname')
+const nicknameInput = document.getElementById('nicknameInput')
+const yourNickname = document.getElementById('yourNickname')
+const yourStatisticsElement = document.getElementById('your')
+const computerStatisticsElement = document.getElementById('computerStatisticsElement')
 let player = "player"
 
 
@@ -43,12 +50,26 @@ scissorsElement.addEventListener("click",
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);  
     
-  }
+}
 
-  let computerScore = 0
-  let playerScore = 0
-  let maxRound = 5
-  let game = false
+let computerScore = 0
+let playerScore = 0
+let game = false
+let maxRound = null
+let nickName = null
+let yourStatistics = 0
+let computerStatistics = 0
+
+btnNomber.addEventListener("click", function getNomber() {
+    maxRound = nomber1.value
+})
+
+btnNickname.addEventListener("click", function getNickname() {
+    nickName = nicknameInput.value
+    yourNickname.textContent = `${nickName}:`
+})
+
+
 
 function playRound(player, computer) {
     if       (player === rock && computer === scissors) {
@@ -81,16 +102,28 @@ function playRound(player, computer) {
         computerScore++
         table.textContent = `Computer Score: ${computerScore} - Player Score: ${playerScore}`
     }
-    if (playerScore === 5 || computerScore === 5) {
+    if (playerScore == maxRound || computerScore == maxRound) {
         game = true;
         table.textContent = `Game over: ${table.textContent}`;
         if (playerScore > computerScore) {
-            result.textContent = 'По результатам 5 игр: ИГРОК АБСОЛЮТНЫЙ ЧЕМПИОН';
+            result.textContent = `По результатам ${maxRound} игр: ИГРОК АБСОЛЮТНЫЙ ЧЕМПИОН`;
+            yourStatistics++
+            yourStatisticsElement.textContent = `${yourStatistics};`
+
         } else {
-            result.textContent = 'По результатам 5 игр: КОМПЬЮТЕР ТЕБЯ УНИЧТОЖИЛ';
+            result.textContent = `По результатам ${maxRound} игр: КОМПЬЮТЕР ТЕБЯ УНИЧТОЖИЛ`;
+            computerStatistics++
+            computerStatisticsElement.textContent = `Компьютер: ${computerStatistics};`
+
         }
 }
 }
+
+function restartGame() {
+    computerScore = 0
+    playerScore = 0   
+}
+
 btnRestart.addEventListener("click", function(){
     restartGame()
     table.textContent = `Computer Score: ${computerScore} - Player Score: ${playerScore}`
@@ -98,8 +131,4 @@ btnRestart.addEventListener("click", function(){
 }
 )
 
-function restartGame() {
-    computerScore = 0
-    playerScore = 0   
-}
 

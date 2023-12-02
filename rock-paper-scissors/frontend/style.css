@@ -134,10 +134,6 @@ a {
   padding-bottom: 7px;
 }
 
-.update {
-  margin-top: 7px;
-}
-
 .bold {
   font-weight: 550;
 }
@@ -145,7 +141,7 @@ a {
 .gameTable {
   position: absolute;
   font-size: 20px;
-  left: 1070px;
+  left: 1128px;
   top: 195px;
 }
 
@@ -179,7 +175,11 @@ a {
   border: 4mm ridge rgba(211, 220, 50, .6);
 }
 
-
+.note {
+  background-color: rgb(255, 206, 72, 0.767);
+  color: rgb(109, 11, 11);
+  font-size: 23px;
+}
 
 
 
