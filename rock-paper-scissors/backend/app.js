@@ -1,12 +1,25 @@
-const express = require('express')
+const express = require('express');
+const handlebars = require('express-handlebars');
+const frontend = __dirname + '/../frontend';
 
-const app = express()
-app.get('/hello', function(req, res) {
-    res.end('Hello Boris')
-})
+const app = express();
+
+app.engine(
+    '.hbs',
+    handlebars.engine({
+        extname: '.hbs',
+        defaultLayout: 'main',
+    })
+);
+app.set('views', `${frontend}/views`);
+app.set('view engine', '.hbs');
+app.get('/', (req, res) => {
+    res.render('home', {
+        title: 'Greetings form Handlebars',
+    });
+});
+
 
 app.listen(5000, function () {
-    console.log('Cerver startet')
-})
-
-app.use('/static', express.static(`${__dirname}/../frontend`))
+    console.log('Server started!');
+});
