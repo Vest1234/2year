@@ -64,10 +64,6 @@ btnNomber.addEventListener("click", function getNomber() {
     maxRound = nomber1.value
 })
 
-btnNickname.addEventListener("click", function getNickname() {
-    nickName = nicknameInput.value
-    yourNickname.textContent = `${nickName}:`
-})
 
 
 

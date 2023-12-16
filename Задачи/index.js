@@ -23,17 +23,18 @@ let arr2 = ['a', 'd', 'f']
 isEqualArrays(arr1, arr2)
 
 //Задание 14
-let array = [2, 3, 4],
-    s = 0,
-    p = 1,
-    i;
+function getSumAndMultOfArray(arr) {
+    let s = 0;
+    let p = 1;
+    arr3.forEach(function (num) {
+        s += num;
+        p *= num;
+    });
+    console.log(s, p)
+}
 
-for (i = 0; i < array.length; i += 1) 
-   {
-    s += array[i];
-    p *= array[i];
-    }
-console.log(s, p)
+const arr3 = [1, 2, 3];
+getSumAndMultOfArray(arr);
 
 //Задание 19
 
@@ -63,4 +64,21 @@ console.log(data)
 
 erase(data)
 
+
+//Задание 16
+function isEqualArrays(arr4, arr5) {
+    if (arr4.length !== arr5.length) {
+        console.log(false);
+    }
+    for (let i = 0; i < arr4.length; i++) {
+        if (arr4[i] !== arr5[i]) {
+            console.log(true);
+        }
+    }
+    console.log(true);;
+}
+
+const arr4 = [1, 2, 3];
+const arr5 = [1, 2, 5];
+console.log(isEqualArrays(arr1, arr2));
 

@@ -1,0 +1,62 @@
+  <div class="header">ROCK PAPPER SCISSORS</div>
+
+  <div class="game">
+    <div class="items-menu">
+      <img src="./image/rock.png" alt="rock" class="gameItem" id="rock">
+      <img src="./image/scissors.png" alt="scissors" class="gameItem"
+      id="scissors">
+      <img src="./image/paper.png" alt="paper" class="gameItem" id="paper">
+    </div>
+
+
+    <div class="menu">
+      <div class="play">
+        <div class="score"><div>Computer Score: 0 - Player Score: 0</div></div>
+        <div class="round">Round result:
+          <span class="conclusion" id="result"></span>
+        </div>
+      </div>
+      <div class="finish"></div>
+      <button class="btnRestart">Restart game</button>
+    </div>
+    <p class="note">Примечание: Перед началом игры нужно ввести количеств раундов</p>
+    <p class="note">Примечание: После выигрыша по всех партиях игрока или компьютера нужно нажимать кнопку "Restart game", иначе будет ошибка</p>
+  </div>
+
+    <div class="playerField">
+        <div class="gameInPart">
+          <p class="bold">До скольки побед играть:</p>
+          <input type="text" id="nomber1" placeholder="Введите число"> <button id="buttonNomber">Применить</button>
+        </div>
+        <div class="statistics">
+          <p class="bold">Счёт по патриям:</p>
+          <span id="yourNickname">{{{You}}}{{{player}}}: </span> <span id="your"> 0;</span>
+          <p id="computerStatisticsElement" >Компьютер: 0;</p>
+        </div>
+    </div>
+
+    <div class="gameTable">
+      {{#if signin}}
+        <form action="/signin">
+          <p class="bold">Твой nickname:</p>
+          <input type="text" name="username" id="nicknameInput" placeholder="Введите nickname игрока">
+          <button id="buttonNickname">Войти</button>
+        </form>
+      {{/if}}
+      <div class="scoreboard">
+        <p class="bold" id="top5">Лучщие 5 игроков:</p>
+        <div class="bestPlayrs">
+          Boris<br>
+          -<br>
+          -<br>
+          -<br>
+          -<br>
+        </div>
+      </div>
+    </div>
+  
+  <div class="footer">
+    <a href="https://www.flaticon.com/authors/freepik"
+      title="scissors icons">Icons created by Freepik - Flaticon</a>
+  </div>
+
