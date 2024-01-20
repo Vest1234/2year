@@ -22,7 +22,27 @@
     <p class="note">Примечание: Перед началом игры нужно ввести количеств раундов</p>
     <p class="note">Примечание: После выигрыша по всех партиях игрока или компьютера нужно нажимать кнопку "Restart game", иначе будет ошибка</p>
   </div>
-
+    <div>
+      {{#if signin}}
+      <div class="input-block">
+        <form action="/signin">
+          <div>Введите имя игрока</div>
+          <input type="text" id="username" name="username">
+          <button id="apply-max">Войти</button>
+        </form>
+      </div>
+    {{else}}
+      <a href="/"><button>Выйти</button></a>
+    {{/if}}
+    <div class="stats">
+      <div>Общая статистика</div>
+      <ol>
+        {{#each allStat}}
+          <li>{{this.name}} {{this.win}}-{{this.lose}}</li>
+        {{/each}}
+      </ol>
+    </div>
+    
     <div class="playerField">
         <div class="gameInPart">
           <p class="bold">До скольки побед играть:</p>
