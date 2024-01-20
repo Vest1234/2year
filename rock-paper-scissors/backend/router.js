@@ -1,11 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const { stat } = require('./scirpts/statistic');
-const { User } = require('./scirpts/user');
+const { stat } = require('./scripts/statistics');
+const { User } = require('./scripts/user');
+
 
 router.get('/', (req, res) => {
     const user = new User('User');
-    res.render('home', {
+    res.render('home.njk', {
         user,
         signin: true
     });
@@ -17,7 +18,7 @@ router.get('/signin', function (req, res) {
     const user = new User(username);
     const allStat = stat.getAllStat();
     user.setStat(userStat.win, userStat.lose);
-    res.render('home', {
+    res.render('home.njk', {
         user,
         allStat,
         signin: false

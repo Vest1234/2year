@@ -1,3 +1,6 @@
+{% extends 'layouts/main.njk'%}
+
+{%block body%}
   <div class="header">КАМЕНЬ НОЖНИЦЫ БУМАГА</div>
 
   <div class="game">
@@ -23,25 +26,6 @@
     <p class="note">Примечание: После выигрыша по всех партиях игрока или компьютера нужно нажимать кнопку "Restart game", иначе будет ошибка</p>
   </div>
     <div>
-      {{#if signin}}
-      <div class="input-block">
-        <form action="/signin">
-          <div>Введите имя игрока</div>
-          <input type="text" id="username" name="username">
-          <button id="apply-max">Войти</button>
-        </form>
-      </div>
-    {{else}}
-      <a href="/"><button>Выйти</button></a>
-    {{/if}}
-    <div class="stats">
-      <div>Общая статистика</div>
-      <ol>
-        {{#each allStat}}
-          <li>{{this.name}} {{this.win}}-{{this.lose}}</li>
-        {{/each}}
-      </ol>
-    </div>
     
     <div class="playerField">
         <div class="gameInPart">
@@ -50,28 +34,30 @@
         </div>
         <div class="statistics">
           <p class="bold">Счёт по патриям:</p>
-          <span id="yourNickname">{{{user.name}}}: </span> <span id="your"> {{{user.win}}};</span>
-          <p id="computerStatisticsElement" >Компьютер: {{{user.lose}}};</p>
+          <span id="yourNickname">{{user.name}}: </span> <span id="your"> {{user.win}};</span>
+          <p id="computerStatisticsElement" >Компьютер: {{user.lose}};</p>
         </div>
     </div>
 
     <div class="gameTable">
-      {{#if signin}}
-        <form action="/signin">
+            {% if signin%}
+         <form action="/signin">
           <p class="bold">Твой nickname:</p>
           <input type="text" name="username" id="nicknameInput" placeholder="Введите nickname игрока">
           <button id="buttonNickname">Войти</button>
         </form>
-      {{/if}}
+    {%else%}
+      <a href="/"><button>Выйти</button></a>
+    {%endif%}
       <div class="scoreboard">
         <p class="bold" id="top5">Лучщие 5 игроков:</p>
-        <div class="bestPlayrs">
-          Boris<br>
-          -<br>
-          -<br>
-          -<br>
-          -<br>
-        </div>
+          <div class="bestPlayrs">
+            <ol>
+              {%for user in allStat%}
+              <li>{{this.name}} {{this.win}}-{{this.lose}}</li>
+              {%endfor%}
+            </ol>
+          </div>
       </div>
     </div>
   
@@ -80,3 +66,4 @@
       title="scissors icons">Icons created by Freepik - Flaticon</a>
   </div>
 
+{%endblock%}

@@ -38,6 +38,7 @@ class Statistic {
     }
 }
 
+
 const statistic = new Statistic();
 
 module.exports = {

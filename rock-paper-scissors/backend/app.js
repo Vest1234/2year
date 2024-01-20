@@ -1,12 +1,13 @@
 const express = require('express');
 const path = require('node:path')
 const frontend = path.resolve(__dirname, "../frontend")
+const views = path.resolve(__dirname, "views") 
 const router = require(path.resolve(__dirname, "router.js"))
 const app = express();
 const nunjucks = require('nunjucks')
 
 
-app.
+
 app.set('views', `${__dirname}/views`);
 nunjucks.configure(views, {
     autoescape: true,
