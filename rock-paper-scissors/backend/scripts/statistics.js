@@ -1,20 +1,21 @@
-
-const User = require("./user.js").User
-
+const { User } = require("./user.js");
 
 class Statistic {
     constructor() {
-            this.table = {
+        this.table = {
             Boris: {
-            win: 5,
-            lose: 2
-            }
+                win: 10,
+                lose: 3
+            },
         };
     }
 
-
     getUserStat(username) {
-    return this.table[username];
+        const checkUser = this.table[username];
+        if (checkUser) {
+            return this.table[username];
+        }
+        return new User(username);
     }
 
     addUserStat(user) {
@@ -26,16 +27,15 @@ class Statistic {
 
     getAllStat() {
         const result = [];
-        const userName = Object.keys(this.table)
-        for (let i = 0; i > userName.length; i++) {
-            const username = userName[i];
-            const user = new User(userName[i]);
-            user.setStat(this.table[username].win, this.table[username].lose)
+        const userNames = Object.keys(this.table);
+        for (let i = 0; i < userNames.length; i++) {
+            const username = userNames[i];
+            const user = new User(username);
+            user.setStat(this.table[username].win, this.table[username].lose);
             result.push(user);
         }
         return result;
     }
-
 }
 
 const statistic = new Statistic();

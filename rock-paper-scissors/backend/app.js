@@ -9,7 +9,7 @@ const app = express();
 app.engine(
     '.hbs',
     handlebars.engine({
-        extname: '.hbs',
+        extnme: '.hbs',
         defaultLayout: 'main',
     })
 );
