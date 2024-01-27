@@ -36,6 +36,9 @@
           <p class="bold">Счёт по патриям:</p>
           <span id="yourNickname">{{user.name}}: </span> <span id="your"> {{user.win}};</span>
           <p id="computerStatisticsElement" >Компьютер: {{user.lose}};</p>
+          {% if not signin %}
+            <button id="sendStatButton">Зафиксировать статистику</button>
+          {% endif%}
         </div>
     </div>
 
