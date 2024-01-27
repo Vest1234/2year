@@ -3,6 +3,10 @@ const { User } = require("./user.js");
 class Statistic {
     constructor() {
         this.table = {
+            Andrey: {
+                win: 5,
+                lose: 2
+            },
             Boris: {
                 win: 10,
                 lose: 3

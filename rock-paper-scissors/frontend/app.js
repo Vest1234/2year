@@ -128,3 +128,24 @@ btnRestart.addEventListener("click", function(){
 )
 
 
+function sendStat(win, lose) {
+    const searchParams = new URLSearchParams(window.location.search);
+    const username = searchParams.get('username');
+    const stat = {
+        username,
+        win: Number(win),
+        lose: Number(lose)
+    };
+    fetch('/stat', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(stat)
+    });
+    location.reload();
+}
+
+statButton.addEventListener('click', function() {
+    sendStat(pFinal.textContent, cFinal.textContent);
+});
