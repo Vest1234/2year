@@ -1,0 +1,67 @@
+{% extends 'layouts/main.njk' %}
+
+{% block body %}
+<div class="game">
+  <div class="left">
+    <div class="input-block">
+      <div class="bold" >Игр в партии</div>
+      <input type="text" id="max-games">
+      <button id="apply-max">Применить</button>
+    </div>
+    <div class="all-score">
+      <span class="bold" >Счет по партиям: </span>
+      <div>{{ user.name }}: <span id="p-final">{{ user.win }}</span></div>
+      <div>Computer: <span id="c-final">{{ user.lose }}</span></div>
+      {% if not signin %}
+        <button id="sendStatButton">Зафиксировать статистику</button>
+      {% endif%}
+    </div>
+  </div>
+  <div class="center">
+      <div class="items-menu">
+        <img src="./image/rock.png" alt="rock" class="gameItem" id="rock">
+        <img src="./image/scissors.png" alt="scissors" class="gameItem"
+        id="scissors">
+        <img src="./image/paper.png" alt="paper" class="gameItem" id="paper">
+      </div>
+
+      <br>
+
+      <div class="menu">
+        <div class="play">
+          <div class="score">
+            <div>Computer Score: 0 - Player Score: 0</div>
+          </div>
+          <div id="result">Game result:</div>
+        </div>
+        <div class="finish"></div>
+        <button id="restart">Restart game</button>
+      </div>
+
+    </div>
+  <div class="right">
+    {% if signin %}
+      <div class="input-block">
+        <form action="/signin">
+          <div class="bold" >Введите имя игрока</div>
+          <input type="text" id="username" name="username">
+          <button id="apply-max">Войти</button>
+        </form>
+      </div>
+    {% else %}
+      <a href="/"><button>Выйти</button></a>
+    {% endif %}
+    <div class="stats">
+      <div class="bold" >Общая статистика:</div>
+      <ol>
+        {% if signin %}
+          <p>Введите имя игрока, чтобы видеть статистику!</p>
+        {% endif%}
+        {% for user in allStat %}
+          <li>{{user.name}} {{user.win}}-{{user.lose}}</li>
+        {% endfor %}
+      </ol>
+    </div>
+  </div>
+</div>
+{% endblock %}

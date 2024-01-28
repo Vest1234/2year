@@ -11,9 +11,9 @@ const btnNomber = document.getElementById("buttonNomber")
 const nomber1 = document.getElementById('nomber1')
 const btnNickname = document.getElementById('buttonNickname')
 const nicknameInput = document.getElementById('nicknameInput')
-const yourNickname = document.getElementById('yourNickname')
 const yourStatisticsElement = document.getElementById('your')
 const computerStatisticsElement = document.getElementById('computerStatisticsElement')
+const statButton = document.getElementById('sendStatButton');
 let player = "player"
 
 
@@ -127,7 +127,6 @@ btnRestart.addEventListener("click", function(){
 }
 )
 
-
 function sendStat(win, lose) {
     const searchParams = new URLSearchParams(window.location.search);
     const username = searchParams.get('username');
@@ -147,5 +146,5 @@ function sendStat(win, lose) {
 }
 
 statButton.addEventListener('click', function() {
-    sendStat(pFinal.textContent, cFinal.textContent);
+    sendStat(yourStatisticsElement.textContent, computerStatisticsElement.textContent);
 });
