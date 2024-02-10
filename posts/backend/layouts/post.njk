@@ -1,0 +1,44 @@
+{% extends 'main.njk' %}
+
+{% block body %}
+
+<main>
+
+        <input class="start_imput" type="text">
+        <button  class="button_create">Сoздать пост</button>
+
+        <p class="komment">Список Постов</p>
+
+        <div class="commit">
+            {% for post in Allpost %}
+                <div class="post1">
+                    <h2>{{post.name}}</h2>
+                    <p>{{post.text}}</p>
+                    <button class="button_open">Открыть</button>
+                    <button  class="button_open">Удалить</button>
+                </div> 
+            {% endfor %}
+            </div>
+
+        <div class="popup__bg"> 
+            <form class="popup">
+                <button class="close-popup">&times;</button> 
+                <label>
+                    <input type="text" name="name">
+                    <div class="label__text">
+                        Название
+                    </div>
+                </label>
+                <label>
+                    <input type="tel" name="tel">
+                    <div class="label__text">
+                        Текст поста
+                    </div>
+                </label>
+                <button type="submit">Добавить пост</button>
+            </form>
+        </div> 
+
+    </main>
+
+    {% endblock %}}
