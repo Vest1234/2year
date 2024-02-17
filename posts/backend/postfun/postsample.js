@@ -1,14 +1,11 @@
-class post {
-    constructor(name) {
+class postsample {
+    constructor(post) {
+        this.index = 0
         this.name = name;
-        this.text = text;
-    }
-
-    setStat(text) {
         this.text = text;
     }
 }
 
 module.exports = {
-    post
+    postsample 
 }

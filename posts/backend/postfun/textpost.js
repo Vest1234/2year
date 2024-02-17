@@ -1,31 +1,64 @@
-const { Post } = require("./postsample.js");
+const { postsample } = require("./postsample.js");
 
 class Allpost {
     constructor() {
-        this.table = {
-            post: {
-                name: "Maths",
-                text: "Сделать дз мо алгебре"
+        this.table = [
+            {
+                index: 1,
+                name: "Матиматике",
+                text: "Сделать дз по алгебре"
             },
-        };
+            {
+                index: 2,
+                name: "Русский",
+                text: "Сделать дз по русскому"
+            },
+            {
+                index: 3,
+                name: "ЕЕЕЕЕ",
+                text: "ЭЩ"
+            }
+        ];
     }
+
+    addPost(index,name,text) {
+        this.table.push({index: 0,
+                         name: name,
+                         text: text
+        })
+    }
+
+    deletePost(index) {
+        this.table.slice
+    }
+
 }
 
-function getAllPost() {
-    const result = [1];
-    const postNames = Object.keys(this.table);
-    for (let i = 0; i < postNames.length; i++) {
-        const postname = postNames[i];
-        const post = new Post(postname);
-        post.setStat(this.table[postname].text);
-        result.push(post);
-    }
-    return result;
+    
 
-}
 
-const allpost = new Allpost();
+let arr = [1, 3]
+
+arr.push
+
+// let b = {}
+// let c = {}
+
+// let arrO = [b , c]
+// let arrA = [{name: "g"} , {}]
+
+// let x = {
+//     table: {
+//         maths: {
+//             name:"Maths",
+//             text: "Сделать дз мо алгебре"
+//         }
+//     }
+// }
+
+
+const x = new Allpost();
 
 module.exports = {
-    Allpost: allpost
+    textpost: x
 }

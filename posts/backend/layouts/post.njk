@@ -10,13 +10,14 @@
         <p class="komment">Список Постов</p>
 
         <div class="commit">
-            {% for post in Allpost %}
+            {% for post in table %}
                 <div class="post1">
-                    <h2>{{post.name}}</h2>
-                    <p>{{post.text}}</p>
+                    <h2>{{ post.name }}</h2>
+                    <p>{{ post.text }}</p>
                     <button class="button_open">Открыть</button>
                     <button  class="button_open">Удалить</button>
-                </div> 
+                </div>
+                <p>ㅤ</p>
             {% endfor %}
             </div>
 
