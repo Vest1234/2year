@@ -22,14 +22,14 @@ class Allpost {
     }
 
     addPost(index,name,text) {
-        this.table.push({index: 0,
+        this.table.push({index: index,
                          name: name,
                          text: text
         })
     }
 
     deletePost(index) {
-        this.table.slice
+        this.table.splice(index, 1)
     }
 
 }

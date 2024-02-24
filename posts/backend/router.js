@@ -10,7 +10,8 @@ router.get('/', (req, res) => {
 
 router.get('/post', (req, res) => {
     textpost.addPost(4,"Добавил пост","Пост")
-    console.log(textpost.table)
+    textpost.deletePost(2)
+    
     res.render('post.njk', {
         table: textpost.table,
     });
