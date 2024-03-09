@@ -14,8 +14,8 @@
                 <div class="post1">
                     <h2>{{ post.name }}</h2>
                     <p>{{ post.text }}</p>
-                    <button class="button_open">Открыть</button>
-                    <button  class="button_open">Удалить</button>
+                    <button id="{{ post.index }}" class="button_open">Открыть</button>
+                    <button id="{{ post.index }}" class="button_delete">Удалить</button>
                 </div>
                 <p>ㅤ</p>
             {% endfor %}

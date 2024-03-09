@@ -127,6 +127,15 @@ a {
     cursor: pointer;
 }
 
+.button_delete {
+    border: 2px solid rgb(0, 132, 255);
+    padding: 4px 8px;
+    margin-top: 10px;
+    font-size: 16px;
+    background-color: white;
+    cursor: pointer;
+}
+
 .start_imput {
     margin-top: 30px;
     margin-bottom: 20px;

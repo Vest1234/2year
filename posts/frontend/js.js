@@ -2,6 +2,31 @@ let popupBg = document.querySelector('.popup__bg'); // Фон попап окн�
 let popup = document.querySelector('.popup'); // Само окно
 let openPopupButtons = document.querySelectorAll('.button_create'); // Кнопки для показа окна
 let closePopupButton = document.querySelector('.close-popup'); // Кнопка для скрытия окна
+let arrButtonDelete = document.querySelectorAll('.button_delete')
+let textpost = fetch('/post', [deletePost()])
+// const { textpost } = import('../backend/postfun/textpost');
+
+
+for ( let i = 0; i< arrButtonDelete.length; i++) {
+    
+    let x = arrButtonDelete[i]
+
+    let butId = x.getAttribute("id")
+
+    x.addEventListener('click', function () {
+        console.log("dshiueh")
+        textpost.deletePost(butId)
+    })
+    
+}
+
+
+// butdelete.addEventListener('click', function (event) {
+//     console.log("dshiueh")
+//     // textpost.deletePost(butId--)
+
+// })
+
 
 openPopupButtons.forEach((button) => { // Перебираем все кнопки
     button.addEventListener('click', (e) => { // Для каждой вешаем обработчик событий на клик
