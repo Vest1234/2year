@@ -3,8 +3,10 @@ let popup = document.querySelector('.popup'); // Само окно
 let openPopupButtons = document.querySelectorAll('.button_create'); // Кнопки для показа окна
 let closePopupButton = document.querySelector('.close-popup'); // Кнопка для скрытия окна
 let arrButtonDelete = document.querySelectorAll('.button_delete')
-let textpost = fetch('/post', [deletePost()])
+let arrButtonOpen = document.querySelectorAll('.button_open')
+
 // const { textpost } = import('../backend/postfun/textpost');
+
 
 
 for ( let i = 0; i< arrButtonDelete.length; i++) {
@@ -13,19 +15,32 @@ for ( let i = 0; i< arrButtonDelete.length; i++) {
 
     let butId = x.getAttribute("id")
 
-    x.addEventListener('click', function () {
-        console.log("dshiueh")
-        textpost.deletePost(butId)
+    x.addEventListener('click', async function () {
+        console.log(butId)
+        const res = await fetch('http://localhost:5000/post',{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({butId: butId})
+        })   
+        return res
     })
-    
+
 }
 
 
-// butdelete.addEventListener('click', function (event) {
-//     console.log("dshiueh")
-//     // textpost.deletePost(butId--)
+for ( let i = 0; i< arrButtonOpen.length; i++) {
+    
+    let x = arrButtonOpen[i]
 
-// })
+    let butId = x.getAttribute("id")
+
+    x.addEventListener('click', function () {
+        console.log(butId)
+    })
+    
+}
 
 
 openPopupButtons.forEach((button) => { // Перебираем все кнопки

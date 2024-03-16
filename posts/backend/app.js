@@ -7,6 +7,7 @@ const app = express();
 const nunjucks = require('nunjucks')
 // const { textpost } = require('./postfun/textpost')
 
+app.use(express.json());
 
 // console.log(textpost.result)
 

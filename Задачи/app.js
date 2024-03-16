@@ -1,12 +1,3 @@
-let arr = ["a","b","c","d"]
-
-// arr.splice()
-// console.log(arr)
-
-function deleteO (b) {
-    console.log(arr)
-    arr.splice(b,b)
-    console.log(arr)
+asyns function createUser() {
+    const users = await getUser
 }
-
-deleteO(1)
