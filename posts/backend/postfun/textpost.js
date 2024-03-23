@@ -29,8 +29,13 @@ class Allpost {
     }
 
     deletePost(index) {
-        this.table.splice(index, 1)
+        let filteredNames = this.table.filter((post) => post.index !== index);
+        this.table = filteredNames
+        console.log(filteredNames)
+        console.log(this.table)
+        
     }
+
 
 }
 

@@ -16,7 +16,7 @@ for ( let i = 0; i< arrButtonDelete.length; i++) {
     let butId = x.getAttribute("id")
 
     x.addEventListener('click', async function () {
-        console.log(butId)
+        // console.log(butId)
         const res = await fetch('http://localhost:5000/post',{
             method: 'POST',
             headers: {

@@ -10,8 +10,8 @@ router.get('/', (req, res) => {
 });
 
 router.get('/post', (req, res) => {
-    textpost.addPost(4,"Добавил пост","Пост")
-    textpost.deletePost(2)
+
+
     
     res.render('post.njk', {
         table: textpost.table,
@@ -19,7 +19,9 @@ router.get('/post', (req, res) => {
 });
 
 router.post('/post', (req, res) => {
-    const butId = req.body.butId;
+    let butId = req.body.butId;
+    butId = Number(butId)
+    console.log(butId)
     textpost.deletePost(butId) 
     console.log(req.body)
     res.send("ok")
