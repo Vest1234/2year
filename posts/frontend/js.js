@@ -4,44 +4,52 @@ let openPopupButtons = document.querySelectorAll('.button_create'); // Кноп�
 let closePopupButton = document.querySelector('.close-popup'); // Кнопка для скрытия окна
 let arrButtonDelete = document.querySelectorAll('.button_delete')
 let arrButtonOpen = document.querySelectorAll('.button_open')
+let nameImp = document.getElementById('nameImp')
+let textImp = document.getElementById('textImp')
+let sendButt = document.getElementById('sendButt')
 
-// const { textpost } = import('../backend/postfun/textpost');
-
-
+sendButt.addEventListener('click',() => {
+    popupBg.classList.remove('active');
+    popup.classList.remove('active'); 
+});
 
 for ( let i = 0; i< arrButtonDelete.length; i++) {
-    
-    let x = arrButtonDelete[i]
 
+    let x = arrButtonDelete[i]
     let butId = x.getAttribute("id")
 
     x.addEventListener('click', async function () {
-        // console.log(butId)
-        const res = await fetch('http://localhost:5000/post',{
+        const res = await fetch('http://localhost:5000/delete',{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({butId: butId})
-        })   
+        }) 
+        location.reload(true) 
         return res
     })
-
 }
 
+let namePost = ""
+let textPost = ""
 
-for ( let i = 0; i< arrButtonOpen.length; i++) {
-    
-    let x = arrButtonOpen[i]
-
-    let butId = x.getAttribute("id")
-
-    x.addEventListener('click', function () {
-        console.log(butId)
+sendButt.addEventListener("click",async function sendPost() {
+    namePost = nameImp.value
+    nameImp.value = ""
+    textPost = textImp.value
+    textImp.value = ""
+    const resb = await fetch('http://localhost:5000/create',{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({namePost: namePost, textPost: textPost})
     })
-    
-}
+    location.reload(true)   
+    return resb;
 
+})
 
 openPopupButtons.forEach((button) => { // Перебираем все кнопки
     button.addEventListener('click', (e) => { // Для каждой вешаем обработчик событий на клик
