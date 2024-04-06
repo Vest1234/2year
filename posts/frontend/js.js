@@ -7,8 +7,15 @@ let arrButtonOpen = document.querySelectorAll('.button_open')
 let nameImp = document.getElementById('nameImp')
 let textImp = document.getElementById('textImp')
 let sendButt = document.getElementById('sendButt')
+let logImp = document.getElementById('logImp')
+let logButt = document.getElementById('logButt')
 
 sendButt.addEventListener('click',() => {
+    popupBg.classList.remove('active');
+    popup.classList.remove('active'); 
+});
+
+logButt.addEventListener('click',() => {
     popupBg.classList.remove('active');
     popup.classList.remove('active'); 
 });

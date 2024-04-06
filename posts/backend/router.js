@@ -28,7 +28,7 @@ router.post('/create', (req, res) => {
     let textPost = req.body.textPost;
     console.log(namePost)
     console.log(textPost)
-    textpost.addPost(4,namePost,textPost)
+    textpost.addPost(namePost,textPost)
     console.log(req.body)
     res.send("ok")
 });

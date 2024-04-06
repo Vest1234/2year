@@ -19,10 +19,16 @@ class Allpost {
                 text: "ЭЩ"
             }
         ];
+
+        
+        
     }
 
-    addPost(index,name,text) {
-        this.table.push({index: index,
+
+    addPost(name,text) {
+        let lastObjNomber = this.table.length-1
+        let lastObj = this.table[lastObjNomber]
+        this.table.push({index: lastObj.index+1,
                          name: name,
                          text: text
         })
@@ -39,7 +45,7 @@ class Allpost {
 
 }
 
-    
+
 
 
 let arr = [1, 3]
