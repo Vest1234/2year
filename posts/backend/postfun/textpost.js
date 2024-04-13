@@ -2,26 +2,11 @@ const { postsample } = require("./postsample.js");
 
 class Allpost {
     constructor() {
-        this.table = [
+        this.users = [
             {
-                index: 1,
-                name: "Матиматике",
-                text: "Сделать дз по алгебре"
-            },
-            {
-                index: 2,
-                name: "Русский",
-                text: "Сделать дз по русскому"
-            },
-            {
-                index: 3,
-                name: "ЕЕЕЕЕ",
-                text: "ЭЩ"
+                name:
             }
-        ];
-
-        
-        
+        ]
     }
 
 
@@ -45,31 +30,26 @@ class Allpost {
 
 }
 
-
-
-
-let arr = [1, 3]
-
-arr.push
-
-// let b = {}
-// let c = {}
-
-// let arrO = [b , c]
-// let arrA = [{name: "g"} , {}]
-
-// let x = {
-//     table: {
-//         maths: {
-//             name:"Maths",
-//             text: "Сделать дз мо алгебре"
-//         }
-//     }
-// }
-
-
 const x = new Allpost();
 
 module.exports = {
     textpost: x
 }
+
+// this.table = [
+//                 {
+//                     index: 1,
+//                     name: "Матиматике",
+//                     text: "Сделать дз по алгебре"
+//                 },
+//                 {
+//                     index: 2,
+//                     name: "Русский",
+//                     text: "Сделать дз по русскому"
+//                 },
+//                 {
+//                     index: 3,
+//                     name: "ЕЕЕЕЕ",
+//                     text: "ЭЩ"
+//                 }
+//             ]

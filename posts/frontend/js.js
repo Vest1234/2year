@@ -15,9 +15,12 @@ sendButt.addEventListener('click',() => {
     popup.classList.remove('active'); 
 });
 
+let logText = ""
+
 logButt.addEventListener('click',() => {
-    popupBg.classList.remove('active');
-    popup.classList.remove('active'); 
+    logText = logImp.value
+    console.log(logText)
+    logImp.value = ""
 });
 
 for ( let i = 0; i< arrButtonDelete.length; i++) {
