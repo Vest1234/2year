@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="form-group">
+    <head>
+        <meta charset="UTF-8">
+        <title>Регистрация</title>
+        <!-- подключаем бутстрап -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    </head>
+    <body>
+        <!-- вся страница будет в одном контейнере -->
+        <div class="container">
+            <div class="row">
+                <!-- делаем самую простую вёрстку -->
+                <div class="col-md-12">
+                    <h2>Регистрация</h2>
+                    <p>Заполните все поля, чтобы создать новый аккаунт.</p>
+                    <!-- форма регистрации -->
+                        
+                            <!-- поле ввода имени -->
+                            <div class="form-group">
+                                <label>Имя</label>
+                                <input id="regNick" type="text" name="name" class="form-control" required>
+                            </div>  
+                            <!-- поле ввода пароля -->
+                            <div class="form-group">
+                                <label>Пароль</label>
+                                <input id="regPass" type="password" name="password" class="form-control" required>
+                            </div>
+                            <!-- поле повторного ввода пароля -->
+                            <div class="form-group">
+                                <button id="regButt" class="btn btn-primary">Зарегистрироваться</button>
+                            </div>
+                            <!-- вход для тех, у кого уже есть аккаунт -->
+                            <p>Уже зарегистрированы? <a href="login.html">Войдите в систему</a>.</p>
+                        
+                </div>
+            </div>
+        </div> 
+        <script src="js.js"></script>   
+    </body>
+</html>
