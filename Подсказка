@@ -13,6 +13,10 @@ http://localhost:(и дальше твой порт) - свой компьюте
 npm start - запустить ф айл с помощью nodemon
 render и vercel и cycles - возможно бесплатный хостинг
 
+Если будет при комите просить имаил и ник:
+git config --global user.name 'Vest1234' 
+git config --global user.email 'Lh3y@yandex.ru' 
 
 Заметки по lowdb
 write - команда которая создаёт или обновляет файл с базой данных
+
