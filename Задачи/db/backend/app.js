@@ -1,11 +1,10 @@
-const express = require('express');
-const router = require('./router.js');
-const path = require('node:path')
-const frontend = path.resolve(__dirname, "../frontend")
+import express from'express';
+import router from './router.js';
+import path from 'node:path'
 
 const app = express();
 app.use(express.json());
-app.use(express.static(frontend));
+app.use(express.static('frontend'));
 app.use(router)
 
 const PORT = 5000;

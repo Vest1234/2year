@@ -1,22 +1,32 @@
 import { JSONFilePreset } from 'lowdb/node'
-const { router } = require('router');
-
+import router from './router.js';
 // Read or create db.json
 const defaultData = { users: [] }
-const db = await JSONFilePreset('db.json', defaultData)
-console.log(db.data.users)
+import path from 'node:path'
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const dbRoud = path.resolve(__dirname, "db.json")
+console.log(__dirname)
+const db = await JSONFilePreset(dbRoud, defaultData)
 
-router.post('/index.html/reg', (req, res) => {
-  let regNickText = req.body.regNickText;
-  let regPassText = req.body.regPassText;
-  console.log(regNick)
-  res.send("ok")
-});
-
-let newUser = {
-    "name": `${this.regNickText}`,
-    "password": `${this.regPassText}`,
-  }
-  
-db.data.users.push(newUser)
-await db.write()
+  // function login(req, res) {
+  //   const users = db.data.users;
+  //   try {
+  //     let username = req.body.usernameT;
+  //     let password = req.body.passwordT;
+  //     const user = db.data.users.find(user => user.username === username);
+  //     if (!user) {
+  //         return res.status(404).send('User not found');
+  //     }
+  //     if (checkPassword(username, password)) {
+  //         res.status(200).json({ token: generateToken(username) });
+  //     } else {
+  //         res.status(401).send('Invalid password');
+  //     }
+  //   } catch (error) {
+  //     console.log(error)
+  //     res.status(500).send('An error occurred');
+  // }
+// }
+export default db 
