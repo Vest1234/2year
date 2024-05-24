@@ -3,39 +3,38 @@
     padding: 0;
 }
 
+body {
+    background-color: #fbf9f9;
+}
+
 .headerBox {
     height: 88px;
     background: #333030;
+    display: flex;
+    justify-content: space-around; 
+    align-items: center;
 }
 
-.pTitle1 {
+.pTitle {
     font-family: "Merriweather", serif;
     font-weight: 400;
     font-style: normal;
-}
-
-.pTitle2 {
-    font-family: "Merriweather", serif;
-    font-weight: 400;
-    font-style: normal;
-}
-
-.pTitle3 {
-    font-family: "Merriweather", serif;
-    font-weight: 400;
-    font-style: normal;
-}
-
-.pTitle4 {
-    font-family: "Merriweather", serif;
-    font-weight: 400;
-    font-style: normal;
+    font-size: 24px;
+    color: #fbf9f9;
 }
 
 .bTitle {
     font-family: "Merriweather", serif;
     font-weight: 700;
     font-style: normal;
+    background-color: #fbf9f9;
+    font-size: 26px;
+    justify-content: center;
+    padding: 28px;
+}
 
+.startPictureBox {
+    margin-top: 33px;
+    display: grid;
 
 }

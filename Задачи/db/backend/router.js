@@ -1,7 +1,7 @@
 import express from 'express';
-import { JSONFilePreset } from 'lowdb/node'
 const router = express.Router();
 import db from './db.js' 
+import { login } from './loginFun.js';
 
 
 router.post('/reg', async (req, res) => {
@@ -17,12 +17,13 @@ router.post('/reg', async (req, res) => {
     await db.write()
     res.send("ok")
   });
+
+  router.post('/login', async (req, res) => {
+    let username = req.body.username;
+    let password = req.body.password;
+    login(username, password)
+    res.send("ok")
+  });
   
-//   router.post('/log', (req, res) => {
-//     let usernameT = req.body.regNickText;
-//     let passwordT = req.body.regPassText;
-//     console.log(usernameT)
-//     res.send("ok")
-//   });
 
 export default router
