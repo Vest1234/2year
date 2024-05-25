@@ -5,18 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <title>Document</title>
 </head>
 <body>
     <header class="header">
         <div  class="header-teg">
-            <input class="logImp" id="logImp" type="text">
-            <button class="logButt" id="logButt" >Отправить</button>
-            <a class="headerWr" href="index.html" class="active-link">Главная</a>
-            <a class="headerWr" href="/post">Посты</a>
-            <a class="headerWr" href="blog.html">О Проекте</a>
+                <!-- <input id="logImp" class="logImp" type="text">
+                <button id="logButt" class="logButt" >Отправить</button> -->
+                <a class="headerWr" href="index.html" class="active-link">Главная</a>
+                <a class="headerWr" href="/post">Посты</a>
+                <a class="headerWr" href="blog.html">О Проекте</a>
+                <a class="headerWr" href="reg.html">Регистрация</a>
+                <a class="headerWr" href="login.html">Вход</a>
         </div>
 
     </header>
@@ -25,7 +28,7 @@
 
     {% block body %}{% endblock %}
 
-    <script src="js.js"></script>
+    <script src="../../frontend/js.js"></script>
 
 </body>
 </html>

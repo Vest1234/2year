@@ -33,7 +33,7 @@
     padding: 3px 8px;
 }
 
-a {
+.headerWr {
     text-decoration: none;
     color: inherit;
     font-size: 26px;
@@ -65,16 +65,13 @@ a {
 }
 
 .phrase {
-    font-size: 30px;
-    font-weight: 700;
+    font-size: 35px;
     text-align: center;
     padding: 10px;
 
 }
 
 .komment {
-    font-size: 27px;
-    font-weight: 700;
     text-align: center;
     padding: 5px;
 }
@@ -289,4 +286,12 @@ a {
     background: #fff;
     color:#2982ff;
     transition: 0.5s all;
+}
+
+.texth2 {
+    padding-top: 10px;
+}
+
+.h5t {
+    font-weight: 400;
 }

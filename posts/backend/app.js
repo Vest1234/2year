@@ -1,11 +1,17 @@
-const express = require('express');
-const path = require('node:path')
+import express from 'express';
+import path from 'node:path'
+import {dirname} from 'node:path'
+import { fileURLToPath } from 'node:url';
+const __dirname = dirname(fileURLToPath(import.meta.url));
 const frontend = path.resolve(__dirname, "../frontend")
 const layouts = path.resolve(__dirname, "layouts") 
-const router = require('./router.js');
+import router from './router.js';
 const app = express();
-const nunjucks = require('nunjucks')
+import nunjucks from 'nunjucks'
+
 // const { textpost } = require('./postfun/textpost')
+
+
 
 app.use(express.json());
 

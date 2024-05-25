@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="form-group">
+    <head>
+        <meta charset="UTF-8">
+        <title>Регистрация</title>
+        <!-- подключаем бутстрап -->
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    </head>
+    <body>
+        <header class="header">
+            <div  class="header-teg">
+                <!-- <input id="logImp" class="logImp" type="text">
+                <button id="logButt" class="logButt" >Отправить</button> -->
+                <a class="headerWr" href="index.html" class="active-link">Главная</a>
+                <a class="headerWr" href="/post">Посты</a>
+                <a class="headerWr" href="blog.html">О Проекте</a>
+                <a class="headerWr" href="reg.html">Регистрация</a>
+                <a class="headerWr" href="login.html">Вход</a>
+            </div>
+    
+        </header>
+
+        <div class="container">
+            <div class="row">
+                <!-- делаем самую простую вёрстку -->
+                <div class="col-md-12">
+                    <h2 class="texth2">Регистрация</h2>
+                    <h5 class="h5t">Заполните все поля, чтобы создать новый аккаунт.</h5>
+                    <!-- форма регистрации -->
+                        
+                            <!-- поле ввода имени -->
+                            <div class="form-group">
+                                <label>Имя</label>
+                                <input id="regNick" type="text" name="name" class="form-control" required>
+                            </div>  
+                            <!-- поле ввода пароля -->
+                            <div class="form-group">
+                                <label>Пароль</label>
+                                <input id="regPass" type="password" name="password" class="form-control" required>
+                            </div>
+                            <!-- поле повторного ввода пароля -->
+                            <div class="form-group">
+                                <button id="regButt" class="btn btn-primary">Зарегистрироваться</button>
+                            </div>
+                            <!-- вход для тех, у кого уже есть аккаунт -->
+                            <p>Уже зарегистрированы? <a href="login.html">Войдите в систему</a>.</p>
+                        
+                </div>
+            </div>
+        </div> 
+        <script src="reg.js"></script>   
+    </body>

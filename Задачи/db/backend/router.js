@@ -18,12 +18,19 @@ router.post('/reg', async (req, res) => {
     res.send("ok")
   });
 
-  router.post('/login', async (req, res) => {
-    let username = req.body.username;
-    let password = req.body.password;
-    login(username, password)
+router.post('/login', async (req, res) => {
+  let username = req.body.username;
+  let password = req.body.password;
+  login(username, password)
+  const logCheck = login(username, password)
+  if (logCheck) {
     res.send("ok")
-  });
-  
+  } else {
+    res.send("notok")
+  }
+
+});
+
+
 
 export default router

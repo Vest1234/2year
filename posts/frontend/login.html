@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title>Вход</title>
+        <!-- подключаем бутстрап -->
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"> 
+    </head>
+    <body>
+        <header class="header">
+            <div  class="header-teg">
+                <!-- <input id="logImp" class="logImp" type="text">
+                <button id="logButt" class="logButt" >Отправить</button> -->
+                <a class="headerWr" href="index.html" class="active-link">Главная</a>
+                <a class="headerWr" href="/post">Посты</a>
+                <a class="headerWr" href="blog.html">О Проекте</a>
+                <a class="headerWr" href="reg.html">Регистрация</a>
+                <a class="headerWr" href="login.html">Вход</a>
+            </div>
+    
+        </header>
+
+        <div class="container">
+            <div class="row">
+                <!-- указываем стиль адаптивной вёрстки -->
+                <div class="col-md-12">
+                    <!-- пишем заголовок и пояснительный текст -->
+                    <h2 class="texth2">Вход</h2>
+                    <h5 class="h5t">Введите имя и пароль.</h5>
+                    <!-- метод, которым будем работать с формой — отправлять на сервер -->
+                    
+                        <!-- поле ввода электронной почты -->
+                        <div class="form-group">
+                            <label>Имя</label>
+                            <input id="logNick" type="text" name="name" class="form-control" required>
+                        </div>    
+                        <!-- поле ввода пароля -->
+                        <div class="form-group">
+                            <label>Пароль</label>
+                            <input id="logPass" type="password" name="password" class="form-control" required>
+                        </div>
+                        <!-- кнопка отправки данных на сервер -->
+                        <div class="form-group">
+                            <button id="logButt" class="btn btn-primary">Войти</button>
+                        </div>
+                        <!-- ссылка для тех, у кого ещё нет аккаунта -->
+                        <p>Нет аккаунта? <a class="" href="reg.html">Создайте его за минуту</a>.</p>
+                    
+                </div>
+            </div>
+        </div>   
+        <script src="login.js"></script> 
+    </body>
+</html>

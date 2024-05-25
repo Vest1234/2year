@@ -1,15 +1,12 @@
-const { postsample } = require("./postsample.js");
+import db from '../db/db.js';
+const users = db.data.users;
+const userData = users.find(({name}) => name == "Тут должен быть username из строки после регистрации");
+let table = userData.table
 
 class Allpost {
-    constructor() {
-        this.users = [
-            {
-                name:
-            }
-        ]
+    constructor(table) {
+        this.users = table
     }
-
-
     addPost(name,text) {
         let lastObjNomber = this.table.length-1
         let lastObj = this.table[lastObjNomber]
@@ -30,26 +27,6 @@ class Allpost {
 
 }
 
-const x = new Allpost();
 
-module.exports = {
-    textpost: x
-}
+export default textpost
 
-// this.table = [
-//                 {
-//                     index: 1,
-//                     name: "Матиматике",
-//                     text: "Сделать дз по алгебре"
-//                 },
-//                 {
-//                     index: 2,
-//                     name: "Русский",
-//                     text: "Сделать дз по русскому"
-//                 },
-//                 {
-//                     index: 3,
-//                     name: "ЕЕЕЕЕ",
-//                     text: "ЭЩ"
-//                 }
-//             ]

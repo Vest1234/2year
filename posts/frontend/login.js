@@ -3,15 +3,15 @@ let usernameT = document.getElementById('logNick')
 let passwordT = document.getElementById('logPass')
 
 logButt.addEventListener('click',() => {
-    username = usernameT.value
-    password = passwordT.value
-    logFun()
+    let username = usernameT.value
+    let password = passwordT.value
+    logFun(username, password)
     logNick.value = ""
     logPass.value = ""
 
 });
 
-async function logFun () {
+async function logFun (username, password) {
     const res = await fetch('/login',{
         method: 'POST',
         headers: {
@@ -20,7 +20,8 @@ async function logFun () {
         body: JSON.stringify({username: username, password: password})
     })
     const text = await res.text()
+    
     if (text == "ok") {
-        location.href = 'http://localhost:4000/join.html'
+        location.href = `http://localhost:5000/user/${username}`
     } 
 }
