@@ -2,36 +2,42 @@ import express from 'express';
 const router = express.Router();
 import db from './db/db.js' 
 import { login } from './loginFun.js';
+import { Allpost } from './postfun/textpost.js';
 
  
-router.get('/', (req, res) => {
-    res.render('post.njk')
-    //     table: textpost.table,
-    // });
+router.post('/logout', (req, res) => {
+    res.render('post.njk', {
+        signin: false
+    });
 });
 
 router.get('/post', (req, res) => {
     // textpost.addPost(4,"namePost","textPost")
     res.render('post.njk')
-    // , {
+    // {
     //     table: textpost.table,
-    // });
+    // };
 });
 
-router.post('/delete', (req, res) => {
+router.post('/user/:username/delete', async (req, res) => {
+    const users = db.data.users;
+    const userData = users.find(({name}) => name == req.params.username);
+    const table = userData.table
+    const textpost = new Allpost(table)
     let butId = req.body.butId;
     butId = Number(butId)
-    // textpost.deletePost(butId) 
+    textpost.deletePost(butId)
     res.send("ok")
 });
 
-router.post('/create', (req, res) => {
+router.post('/user/:username/create', async (req, res) => {
+    const users = db.data.users;
+    const userData = users.find(({name}) => name == req.params.username);
+    const table = userData.table
+    const textpost = new Allpost(table)
     let namePost = req.body.namePost;
     let textPost = req.body.textPost;
-    console.log(namePost)
-    console.log(textPost)
-    // textpost.addPost(namePost,textPost)
-    console.log(req.body)
+    textpost.addPost(namePost,textPost)
     res.send("ok")
 });
 
@@ -44,12 +50,11 @@ router.post('/reg', async (req, res) => {
         "table": [
             {
                 "index": 1,
-                "name": "Пост",
-                "text": "Текст поста"
+                "name": "Это заголовок поста",
+                "text": "Это текст поста"
             }
         ]
     }
-    console.log(db.data.users)
     db.data.users.push(newUser)
     await db.write()
     res.send("ok")
@@ -65,12 +70,21 @@ router.post('/login', async (req, res) => {
   } else {
     res.send("notok")
   }
-
 });
 
-router.get('/login/:username', (req, res) => {
-    console.log(req.params.username);
-    res.render()
+router.post('/loginRender', async(req, res) => {
+    res.render('post.njk', {
+        signin: true
+    });
+  });
+
+router.get('/user/:username', (req, res) => {
+    const users = db.data.users;
+    const userData = users.find(({name}) => name == req.params.username);
+    const table = userData.table
+    const textpost = new Allpost(table)
+    let name = req.params.username
+    res.render('post.njk', {table: textpost.table, name: name})
 })
 
 export default router

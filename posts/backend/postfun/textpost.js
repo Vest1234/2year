@@ -1,11 +1,8 @@
-import db from '../db/db.js';
-const users = db.data.users;
-const userData = users.find(({name}) => name == "Тут должен быть username из строки после регистрации");
-let table = userData.table
+import db from "../db/db.js"
 
-class Allpost {
+export class Allpost {
     constructor(table) {
-        this.users = table
+        this.table = table
     }
     addPost(name,text) {
         let lastObjNomber = this.table.length-1
@@ -16,17 +13,15 @@ class Allpost {
         })
     }
 
-    deletePost(index) {
+    async deletePost(index) {
+        console.log(this.table)
         let filteredNames = this.table.filter((post) => post.index !== index);
         this.table = filteredNames
-        console.log(filteredNames)
         console.log(this.table)
-        
+        await db.write()
     }
-
 
 }
 
 
-export default textpost
 

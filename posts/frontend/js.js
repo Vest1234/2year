@@ -9,6 +9,9 @@ let textImp = document.getElementById('textImp')
 let sendButt = document.getElementById('sendButt')
 let logImp = document.getElementById('logImp')
 let logButt = document.getElementById('logButt')
+let closePost = document.getElementById('closePost')
+
+console.log(openPopupButtons)
 
 sendButt.addEventListener('click',() => {
     popupBg.classList.remove('active');
@@ -17,11 +20,7 @@ sendButt.addEventListener('click',() => {
 
 let logText = ""
 
-logButt.addEventListener('click',() => {
-    logText = logImp.value
-    console.log(logText)
-    logImp.value = ""
-});
+
 
 for ( let i = 0; i< arrButtonDelete.length; i++) {
 
@@ -29,7 +28,7 @@ for ( let i = 0; i< arrButtonDelete.length; i++) {
     let butId = x.getAttribute("id")
 
     x.addEventListener('click', async function () {
-        const res = await fetch('http://localhost:5000/delete',{
+        const res = await fetch(location.href+'/delete',{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -49,7 +48,7 @@ sendButt.addEventListener("click",async function sendPost() {
     nameImp.value = ""
     textPost = textImp.value
     textImp.value = ""
-    const resb = await fetch('http://localhost:5000/create',{
+    const resb = await fetch(location.href+"/create",{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -58,7 +57,6 @@ sendButt.addEventListener("click",async function sendPost() {
     })
     location.reload(true)   
     return resb;
-
 })
 
 openPopupButtons.forEach((button) => { // Перебираем все кнопки
@@ -80,3 +78,14 @@ document.addEventListener('click', (e) => { // Вешаем обработчик
         popup.classList.remove('active'); // И с окна
     }
 });
+
+closePost.addEventListener("click",async function () {
+    const res = await fetch("/logout",{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+    })
+    location.href = 'http://localhost:5000/index.html'
+    return res
+})

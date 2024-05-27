@@ -3,19 +3,15 @@
 {% block body %}
 
 <main>
-
-
-
-
         <h2 class="komment">Список Постов</h2>
+        <input class="start_imput" type="text">
         <button  class="button_create">Сoздать пост</button>
-        
-        <div class="commit">
+
+
             {% for post in table %}
                 <div class="post1">
                     <h2>{{ post.name }}</h2>
                     <p>{{ post.text }}</p>
-                    <button id="{{ post.index }}" class="button_open">Открыть</button>
                     <button id="{{ post.index }}" class="button_delete">Удалить</button>
                 </div>
                 <p>ㅤ</p>
@@ -43,4 +39,4 @@
 
     </main>
 
-    {% endblock %}}
+    {% endblock %}
