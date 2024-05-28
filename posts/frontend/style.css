@@ -316,3 +316,13 @@
 .regStatus{
     margin-bottom: 30px;
 }
+
+#nameShow {
+    text-decoration: none;
+    color: inherit;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 24px;
+    margin-left: 270px;
+    font-family: 'Montserrat';
+}

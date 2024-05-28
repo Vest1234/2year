@@ -8,10 +8,10 @@
         <button  class="button_create">Сoздать пост</button>
 
 
-            {% for post in table %}
+            {% for post in userData %}
                 <div class="post1">
                     <h2>{{ post.name }}</h2>
-                    <p>{{ post.text }}</p>
+                    <p class="line-through">{{ post.text }}</p>
                     <button id="{{ post.index }}" class="button_delete">Удалить</button>
                 </div>
                 <p>ㅤ</p>

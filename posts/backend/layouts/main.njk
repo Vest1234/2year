@@ -18,7 +18,8 @@
                 <a class="headerWr" href="http://localhost:5000/reg.html">Регистрация</a>
                 <a class="headerWr" href="http://localhost:5000/login.html">Вход</a>
                 {%else%}
-                <a class="headerWr" href="/user/{{name}}">Посты</a>
+
+                <a class="headerWr" href="/user/{{name}}">Посты {{name}}</a>
                 <button id="closePost" class="btnClose">Выйти из аккаунта</button>
                 {%endif%}
         </div>

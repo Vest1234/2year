@@ -1,24 +1,23 @@
 import db from "../db/db.js"
 
 export class Allpost {
-    constructor(table) {
-        this.table = table
+    constructor(userData) {
+        this.userData = userData
     }
+    
     addPost(name,text) {
-        let lastObjNomber = this.table.length-1
-        let lastObj = this.table[lastObjNomber]
-        this.table.push({index: lastObj.index+1,
+        let lastObjNomber = this.userData.table.length-1
+        let lastObj = this.userData.table[lastObjNomber]
+        this.userData.table.push({index: lastObj.index+1,
                          name: name,
                          text: text
         })
     }
 
-    async deletePost(index) {
-        console.log(this.table)
-        let filteredNames = this.table.filter((post) => post.index !== index);
-        this.table = filteredNames
-        console.log(this.table)
-        await db.write()
+     deletePost(index) {
+        let filteredNames = this.userData.table.filter((post) => post.index !== index);
+        this.userData.table = filteredNames
+        console.log(this.userData.table)
     }
 
 }

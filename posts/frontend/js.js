@@ -11,8 +11,6 @@ let logImp = document.getElementById('logImp')
 let logButt = document.getElementById('logButt')
 let closePost = document.getElementById('closePost')
 
-console.log(openPopupButtons)
-
 sendButt.addEventListener('click',() => {
     popupBg.classList.remove('active');
     popup.classList.remove('active'); 
@@ -89,3 +87,4 @@ closePost.addEventListener("click",async function () {
     location.href = 'http://localhost:5000/index.html'
     return res
 })
+

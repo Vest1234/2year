@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { text } from 'express';
 const router = express.Router();
 import db from './db/db.js' 
 import { login } from './loginFun.js';
@@ -22,11 +22,12 @@ router.get('/post', (req, res) => {
 router.post('/user/:username/delete', async (req, res) => {
     const users = db.data.users;
     const userData = users.find(({name}) => name == req.params.username);
-    const table = userData.table
-    const textpost = new Allpost(table)
+    // console.log(userData)
+    const textpost = new Allpost(userData)
     let butId = req.body.butId;
     butId = Number(butId)
     textpost.deletePost(butId)
+    await db.write()
     res.send("ok")
 });
 
@@ -34,10 +35,11 @@ router.post('/user/:username/create', async (req, res) => {
     const users = db.data.users;
     const userData = users.find(({name}) => name == req.params.username);
     const table = userData.table
-    const textpost = new Allpost(table)
+    const textpost = new Allpost(userData)
     let namePost = req.body.namePost;
     let textPost = req.body.textPost;
     textpost.addPost(namePost,textPost)
+    await db.write()
     res.send("ok")
 });
 
@@ -82,9 +84,9 @@ router.get('/user/:username', (req, res) => {
     const users = db.data.users;
     const userData = users.find(({name}) => name == req.params.username);
     const table = userData.table
-    const textpost = new Allpost(table)
+    const textpost = new Allpost(userData)
     let name = req.params.username
-    res.render('post.njk', {table: textpost.table, name: name})
+    res.render('post.njk', {userData: userData.table, name: name})
 })
 
 export default router
